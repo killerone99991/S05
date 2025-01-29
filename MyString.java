@@ -11,8 +11,8 @@ import java.util.Scanner;
 /**
  * S05 - Count the number of the appearance of letters in a string.
  *
- * This class provides methods to input a string, count the occurrences of 
- * each letter in the string, and display the results in a formatted manner.
+ * This class provides methods to input a string, count the occurrences of each
+ * letter in the string, and display the results in a formatted manner.
  *
  * @author Tran Hieu Nghia - CE191122
  */
@@ -30,8 +30,8 @@ public class MyString {
     }
 
     /**
-     * Reads and validates the input string from the user.
-     * Ensures that the input contains at least one alphabetic letter.
+     * Reads and validates the input string from the user. Ensures that the
+     * input contains at least one alphabetic letter.
      *
      * @return The validated input string.
      */
@@ -59,9 +59,11 @@ public class MyString {
 
         // Iterate through each character in the input string
         for (char c : input.toCharArray()) {
-            if (Character.isLetter(c)) { // Check if the character is a letter
-                char lowerC = Character.toLowerCase(c); // Convert to lowercase
-                int index = lowerC - 'a'; // Calculate the index (0 for 'a', 1 for 'b', etc.)
+            if (Handle.isAlpha(c) == 1) {
+                if (Handle.isUpper(c) == 1) { // Kiểm tra nếu là chữ in hoa
+                    c = (char) Handle.toLower(c); // Chuyển chữ hoa thành chữ thường
+                }
+                int index = c - 'a'; // Calculate the index (0 for 'a', 1 for 'b', etc.)
                 array.set(index, array.get(index) + 1); // Increment the count at the corresponding index
             }
         }
@@ -70,8 +72,8 @@ public class MyString {
     }
 
     /**
-     * Generates a formatted string representation of the letter counts.
-     * Only includes letters with non-zero counts.
+     * Generates a formatted string representation of the letter counts. Only
+     * includes letters with non-zero counts.
      *
      * @return A formatted string listing the letters and their counts.
      */

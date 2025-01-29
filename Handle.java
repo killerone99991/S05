@@ -5,13 +5,14 @@
  */
 package s05;
 
-import java.util.ArrayList;
 import java.util.Scanner;
 
 /**
  * S05 - Count the number of the appearance of letters in a string.
  *
  * This class provides utilities for validating and handling string inputs.
+ * It includes methods to check if a character is a letter, 
+ * determine if it is uppercase, and convert uppercase letters to lowercase.
  *
  * @author Tran Hieu Nghia - CE191122
  */
@@ -45,5 +46,36 @@ public class Handle {
             }
         } while (!size.matches(".*[a-zA-Z].*")); // Repeat until the input is valid
         return size; // Return the validated input
+    }
+
+    /**
+     * Checks if a character is an alphabetic letter.
+     *
+     * @param c The character to check.
+     * @return 1 if the character is a letter, 0 otherwise.
+     */
+    public static int isAlpha(int c) {
+        return Character.isLetter(c) ? 1 : 0; // Returns 1 if letter, 0 if not
+    }
+
+    /**
+     * Checks if a character is an uppercase letter.
+     *
+     * @param c The character to check.
+     * @return 1 if the character is uppercase, 0 otherwise.
+     */
+    public static int isUpper(int c) {
+        return Character.isUpperCase(c) ? 1 : 0; // Returns 1 if uppercase, 0 if not
+    }
+
+    /**
+     * Converts an uppercase letter to a lowercase letter.
+     * If the input is already lowercase, it remains unchanged.
+     *
+     * @param c The character to convert.
+     * @return The ASCII value of the lowercase equivalent of the input character.
+     */
+    public static int toLower(int c) {
+        return Character.toLowerCase(c); // Returns lowercase ASCII value
     }
 }
